@@ -101,7 +101,7 @@ const jsonLd = {
   sameAs: [
     'https://x.com/joenitos',
     'https://www.linkedin.com/in/amos-jonathan-799b82354',
-    'https://github.com/jonathanamos319-source',
+    'https://github.com/jonathanamos740-droid',
     'https://www.tiktok.com/@joenitos',
   ],
   description:

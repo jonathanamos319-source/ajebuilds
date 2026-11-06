@@ -130,7 +130,7 @@ export const Footer: React.FC = () => {
                   </li>
                   <li>
                     <a
-                      href="https://github.com/jonathanamos319-source/Nectar_reactnative"
+                      href="https://github.com/jonathanamos740-droid/Nectar_reactnative"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="hover:text-[var(--fg)] transition-colors flex items-center gap-1"
@@ -141,7 +141,7 @@ export const Footer: React.FC = () => {
                   </li>
                   <li>
                     <a
-                      href="https://github.com/jonathanamos319-source/Marketplace"
+                      href="https://github.com/jonathanamos740-droid/Marketplace"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="hover:text-[var(--fg)] transition-colors flex items-center gap-1"
@@ -152,7 +152,7 @@ export const Footer: React.FC = () => {
                   </li>
                   <li>
                     <a
-                      href="https://github.com/jonathanamos319-source"
+                      href="https://github.com/jonathanamos740-droid"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="hover:text-[var(--fg)] transition-colors flex items-center gap-1"

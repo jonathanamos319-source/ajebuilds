@@ -54,7 +54,7 @@ export const SITE_METADATA = {
   socials: {
     twitter: 'https://x.com/joenitos',
     linkedin: 'https://www.linkedin.com/in/amos-jonathan-799b82354',
-    github: 'https://github.com/jonathanamos319-source',
+    github: 'https://github.com/jonathanamos740-droid',
     tiktok: 'https://www.tiktok.com/@joenitos',
   },
   bio: [
@@ -96,7 +96,7 @@ export const REAL_PROJECTS: Project[] = [
     description:
       'A food delivery website built with React and TailwindCSS, featuring a clean UI and seamless user experience.',
     tags: ['React', 'Material UI', 'JavaScript', 'React Router', 'Vite', 'MySQL', 'Spring Boot', 'Java', 'Docker'],
-    githubUrl: 'https://github.com/jonathanamos319-source/Nectar_reactnative',
+    githubUrl: 'https://github.com/jonathanamos740-droid/Nectar_reactnative',
     featured: true,
   },
   {
@@ -107,7 +107,7 @@ export const REAL_PROJECTS: Project[] = [
     description:
       'A Facebook Marketplace clone - used the project to learn API calling, search indexing, and client-side routing.',
     tags: ['React', 'JavaScript'],
-    githubUrl: 'https://github.com/jonathanamos319-source/Marketplace',
+    githubUrl: 'https://github.com/jonathanamos740-droid/Marketplace',
     featured: false,
   },
   {
@@ -118,7 +118,7 @@ export const REAL_PROJECTS: Project[] = [
     description:
       'A Chrome extension built with JavaScript that generates a random Bible verse every 5 minutes.',
     tags: ['JavaScript', 'Chrome Extension'],
-    githubUrl: 'https://github.com/jonathanamos319-source/Bible_RandomVerse',
+    githubUrl: 'https://github.com/jonathanamos740-droid/Bible_RandomVerse',
     featured: false,
   },
   {
@@ -129,7 +129,7 @@ export const REAL_PROJECTS: Project[] = [
     description:
       'A live football scores website that pulls matches happening in real time from leagues all over the world.',
     tags: ['React', 'JavaScript'],
-    githubUrl: 'https://github.com/jonathanamos319-source/Zoomscore',
+    githubUrl: 'https://github.com/jonathanamos740-droid/Zoomscore',
     featured: false,
   },
   {
@@ -140,7 +140,7 @@ export const REAL_PROJECTS: Project[] = [
     description:
       'Clone of an on-demand grocery and food delivery application built with React Native with intuitive cart and checkout flows.',
     tags: ['React Native', 'JavaScript'],
-    githubUrl: 'https://github.com/jonathanamos319-source/Nectar_reactnative',
+    githubUrl: 'https://github.com/jonathanamos740-droid/Nectar_reactnative',
     featured: false,
   },
 ];
