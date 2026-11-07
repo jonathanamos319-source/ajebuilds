@@ -58,8 +58,8 @@ export async function POST(req: NextRequest) {
             Authorization: `Bearer ${resendApiKey}`,
           },
           body: JSON.stringify({
-            from: 'AJÉBUILDS Inquiries <onboarding@resend.dev>',
-            to: ['amosjonathan310@gmail.com'],
+            from: process.env.RESEND_FROM_EMAIL || 'AJÉBUILDS Inquiries <onboarding@resend.dev>',
+            to: [process.env.NOTIFICATION_EMAIL || 'amosjonathan310@gmail.com'],
             reply_to: payload.email,
             subject: `⚡ New Project Inquiry: ${payload.name} (${payload.service})`,
             html: `
