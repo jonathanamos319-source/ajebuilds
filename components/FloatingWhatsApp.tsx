@@ -41,7 +41,7 @@ export const FloatingWhatsApp: React.FC = () => {
   return (
     <aside aria-label="WhatsApp Contact" className="fixed bottom-5 right-5 sm:bottom-6 sm:right-6 z-40">
       {/* ========================================================
-          MOBILE VIEW: Dedicated Floating Circular WhatsApp Button
+          MOBILE VIEW: Dedicated Floating Circular WhatsApp Button with Liquid Metal Border
           ======================================================== */}
       <div className="block sm:hidden">
         <a
@@ -49,16 +49,33 @@ export const FloatingWhatsApp: React.FC = () => {
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Chat directly on WhatsApp with Amos Jonathan"
-          className="relative flex items-center justify-center w-14 h-14 rounded-full bg-[#25D366] text-white shadow-[0_8px_25px_rgba(37,211,102,0.5)] active:scale-90 transition-transform duration-200 outline-none select-none"
+          className="relative flex items-center justify-center cursor-pointer active:scale-90 transition-transform duration-200 outline-none select-none"
         >
-          {/* Subtle live radar ping ring */}
-          <span className="absolute inset-0 rounded-full bg-[#25D366] opacity-40 animate-ping pointer-events-none" />
+          <div
+            className="relative rounded-full overflow-hidden shadow-[0_12px_32px_rgba(10,15,8,0.55)]"
+            style={{ padding: 3.5 }}
+          >
+            {/* Liquid Metal Border Layer */}
+            <LiquidMetal
+              colorBack="#0A0F08"
+              colorTint="#86F00A"
+              speed={0.7}
+              repetition={4}
+              distortion={0.16}
+              scale={1}
+              className="absolute inset-0 z-0 rounded-full pointer-events-none"
+            />
 
-          {/* Real WhatsApp Icon */}
-          <WhatsAppIcon className="w-7 h-7 text-white drop-shadow-sm relative z-10" />
+            {/* Inner Button Body */}
+            <div className="relative z-10 w-13 h-13 rounded-full flex items-center justify-center bg-[#0A0F08] text-white">
+              <div className="w-10 h-10 rounded-full flex items-center justify-center bg-[#25D366] text-white shadow-md shadow-[#25D366]/40">
+                <WhatsAppIcon className="w-6 h-6 text-white drop-shadow-sm" />
+              </div>
+            </div>
+          </div>
 
           {/* Online status green dot */}
-          <span className="absolute -top-0.5 -right-0.5 w-3.5 h-3.5 bg-[var(--lime)] border-2 border-[#0A0F08] rounded-full shadow-xs z-20" />
+          <span className="absolute top-0 right-0 w-3.5 h-3.5 bg-[var(--lime)] border-2 border-[#0A0F08] rounded-full shadow-xs z-20 pointer-events-none" />
         </a>
       </div>
 
