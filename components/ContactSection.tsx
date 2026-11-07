@@ -151,14 +151,22 @@ export const ContactSection: React.FC = () => {
               <div className="p-5 sm:p-8 md:p-10 rounded-2xl sm:rounded-[var(--r-lg)] bg-[var(--surface-2)] border border-[var(--line-strong)] shadow-xl">
                 <form onSubmit={handleSubmit} className="space-y-5 sm:space-y-6">
                   {status === 'success' && (
-                    <div className="p-5 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 text-[var(--fg)] space-y-3.5">
+                    <div className="p-5 sm:p-6 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 text-[var(--fg)] space-y-4">
                       <div className="flex items-start gap-3">
-                        <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
-                        <div>
-                          <p className="font-bold text-emerald-700 text-sm">Inquiry received successfully!</p>
-                          <p className="text-xs text-[var(--muted)] mt-1 leading-relaxed">
-                            Thank you for reaching out, <strong>{formData.name || 'there'}</strong>. Amos Jonathan has been notified and will review your project details within 24 hours.
+                        <CheckCircle2 className="w-6 h-6 text-emerald-600 shrink-0 mt-0.5" />
+                        <div className="space-y-1.5">
+                          <p className="font-bold text-emerald-700 text-sm sm:text-base">Inquiry received & auto-confirmation sent!</p>
+                          <p className="text-xs sm:text-sm text-[var(--muted)] leading-relaxed">
+                            Thank you, <strong>{formData.name || 'there'}</strong>. Your message has been sent and received. Amos Jonathan is reviewing your project details.
                           </p>
+                          <div className="mt-2.5 p-3 rounded-xl bg-[#0A0F08] text-white border border-[#86F00A]/30">
+                            <p className="text-xs text-[#86F00A] font-bold uppercase tracking-wider mb-1 flex items-center gap-1.5">
+                              <span>⏱️ 30-Minute Fast-Track:</span>
+                            </p>
+                            <p className="text-xs text-[#C2D4BF] leading-relaxed">
+                              If you do not receive a response within <strong>30 minutes</strong>, please tap below to jump directly into our priority WhatsApp chat.
+                            </p>
+                          </div>
                         </div>
                       </div>
                       <div className="pt-2 flex flex-wrap items-center gap-3">
@@ -166,16 +174,16 @@ export const ContactSection: React.FC = () => {
                           href={whatsappUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#0A0F08] text-white text-xs font-semibold hover:bg-[#162012] hover:text-[var(--lime)] transition-colors"
+                          className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-[#86F00A] text-[#0A0F08] text-xs sm:text-sm font-bold hover:bg-[#78db09] transition-all shadow-[0_8px_20px_-5px_rgba(134,240,10,0.5)]"
                         >
-                          <MessageCircle className="w-3.5 h-3.5 text-[var(--lime)]" />
-                          <span>Chat on WhatsApp for instant reply</span>
-                          <ArrowUpRight className="w-3.5 h-3.5 text-[var(--lime)]" />
+                          <MessageCircle className="w-4 h-4 text-[#0A0F08]" />
+                          <span>Open Priority WhatsApp Chat</span>
+                          <ArrowUpRight className="w-3.5 h-3.5 text-[#0A0F08]" />
                         </a>
                         <button
                           type="button"
                           onClick={handleReset}
-                          className="px-3.5 py-2.5 rounded-xl border border-[var(--line-strong)] text-xs text-[var(--muted)] hover:text-[var(--fg)] hover:border-black transition-colors"
+                          className="px-4 py-3 rounded-full border border-[var(--line-strong)] text-xs text-[var(--muted)] hover:text-[var(--fg)] hover:border-black transition-colors"
                         >
                           Send another inquiry
                         </button>
