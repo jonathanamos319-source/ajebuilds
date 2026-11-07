@@ -237,11 +237,11 @@ const jsonLdGraph = {
     },
 
     // 5. Service Schemas (matching visible agency services)
-    ...SERVICES.map((service, index) => ({
+    ...SERVICES.map((service) => ({
       '@type': 'Service',
       '@id': `https://ajebuilds.site/#service-${service.id}`,
       name: service.title,
-      description: service.description,
+      description: service.tagline,
       provider: {
         '@id': 'https://ajebuilds.site/#organization',
       },
