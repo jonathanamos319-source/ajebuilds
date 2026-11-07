@@ -2,9 +2,8 @@
 
 import React, { useState } from 'react';
 import { ScrollReveal } from './ui/ScrollReveal';
-import { Mail, Phone, Calendar, Send, CheckCircle2, AlertCircle, ArrowUpRight } from 'lucide-react';
+import { Mail, Phone, Calendar, Send, CheckCircle2, AlertCircle, ArrowUpRight, MessageCircle } from 'lucide-react';
 import { SITE_METADATA } from '@/data/content';
-import { LiquidMetalButton } from './ui/LiquidMetalButton';
 import { SocialFlipButton } from './ui/SocialFlipButton';
 
 export const ContactSection: React.FC = () => {
@@ -18,6 +17,16 @@ export const ContactSection: React.FC = () => {
 
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState('');
+
+  // Pre-formatted WhatsApp inquiry message
+  const whatsappUrl = `https://wa.me/2348022872198?text=${encodeURIComponent(
+    `*New Project Inquiry — AJÉBUILDS*\n\n` +
+    `*Name:* ${formData.name.trim() || 'Not provided'}\n` +
+    `*Email:* ${formData.email.trim() || 'Not provided'}\n` +
+    `*Phone / WhatsApp:* ${formData.phone.trim() || 'Not provided'}\n` +
+    `*Service Needed:* ${formData.service}\n\n` +
+    `*Project Details:*\n${formData.message.trim() || 'I would like to discuss building a project with AJÉBUILDS.'}`
+  )}`;
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -37,17 +46,21 @@ export const ContactSection: React.FC = () => {
       }
 
       setStatus('success');
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        service: 'Web Design & UI/UX',
-        message: '',
-      });
     } catch (err: any) {
       setStatus('error');
       setErrorMessage(err.message || 'Something went wrong. Please message us directly via WhatsApp.');
     }
+  };
+
+  const handleReset = () => {
+    setStatus('idle');
+    setFormData({
+      name: '',
+      email: '',
+      phone: '',
+      service: 'Web Design & UI/UX',
+      message: '',
+    });
   };
 
   return (
@@ -132,28 +145,49 @@ export const ContactSection: React.FC = () => {
             </ScrollReveal>
           </div>
 
-          {/* Right Column: Contact Form with Liquid Metal Submit Button */}
+          {/* Right Column: Contact Form */}
           <div className="lg:col-span-7">
             <ScrollReveal delay={0.15}>
               <div className="p-5 sm:p-8 md:p-10 rounded-2xl sm:rounded-[var(--r-lg)] bg-[var(--surface-2)] border border-[var(--line-strong)] shadow-xl">
                 <form onSubmit={handleSubmit} className="space-y-5 sm:space-y-6">
                   {status === 'success' && (
-                    <div className="p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-xs text-[var(--fg)] flex items-start gap-3">
-                      <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0" />
-                      <div>
-                        <p className="font-bold text-emerald-700">Message received!</p>
-                        <p className="text-[var(--muted)] mt-0.5">
-                          Thank you for reaching out. Amos Jonathan will review your project details and get back to you within 24 hours.
-                        </p>
+                    <div className="p-5 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 text-[var(--fg)] space-y-3.5">
+                      <div className="flex items-start gap-3">
+                        <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
+                        <div>
+                          <p className="font-bold text-emerald-700 text-sm">Inquiry received successfully!</p>
+                          <p className="text-xs text-[var(--muted)] mt-1 leading-relaxed">
+                            Thank you for reaching out, <strong>{formData.name || 'there'}</strong>. Amos Jonathan has been notified and will review your project details within 24 hours.
+                          </p>
+                        </div>
+                      </div>
+                      <div className="pt-2 flex flex-wrap items-center gap-3">
+                        <a
+                          href={whatsappUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#0A0F08] text-white text-xs font-semibold hover:bg-[#162012] hover:text-[var(--lime)] transition-colors"
+                        >
+                          <MessageCircle className="w-3.5 h-3.5 text-[var(--lime)]" />
+                          <span>Chat on WhatsApp for instant reply</span>
+                          <ArrowUpRight className="w-3.5 h-3.5 text-[var(--lime)]" />
+                        </a>
+                        <button
+                          type="button"
+                          onClick={handleReset}
+                          className="px-3.5 py-2.5 rounded-xl border border-[var(--line-strong)] text-xs text-[var(--muted)] hover:text-[var(--fg)] hover:border-black transition-colors"
+                        >
+                          Send another inquiry
+                        </button>
                       </div>
                     </div>
                   )}
 
                   {status === 'error' && (
                     <div className="p-4 rounded-xl bg-red-500/10 border border-red-500/40 text-xs text-[var(--fg)] flex items-start gap-3">
-                      <AlertCircle className="w-5 h-5 text-red-400 shrink-0" />
+                      <AlertCircle className="w-5 h-5 text-red-500 shrink-0 mt-0.5" />
                       <div>
-                        <p className="font-bold text-red-400">Submission failed</p>
+                        <p className="font-bold text-red-600">Submission notice</p>
                         <p className="text-[var(--muted)] mt-0.5">
                           {errorMessage || 'Please try again or chat with us directly via WhatsApp.'}
                         </p>
@@ -249,17 +283,35 @@ export const ContactSection: React.FC = () => {
                     />
                   </div>
 
-                  {/* Liquid Metal Submit Button */}
-                  <div className="pt-2 flex justify-start">
-                    <LiquidMetalButton
+                  {/* Action Buttons: Native Submit & WhatsApp */}
+                  <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5">
+                    <button
                       type="submit"
                       disabled={status === 'loading'}
-                      size="lg"
-                      icon={<Send className="w-4 h-4 text-white" />}
-                      className="w-full sm:w-auto"
+                      className="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-full bg-[#86F00A] text-[#0A0F08] font-bold text-sm tracking-tight transition-all duration-200 hover:bg-[#78db09] hover:shadow-[0_8px_25px_-5px_rgba(134,240,10,0.5)] active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
                     >
-                      {status === 'loading' ? 'Sending inquiry...' : 'Submit Project Inquiry'}
-                    </LiquidMetalButton>
+                      {status === 'loading' ? (
+                        <>
+                          <span className="w-4 h-4 border-2 border-[#0A0F08] border-t-transparent rounded-full animate-spin" />
+                          <span>Sending inquiry...</span>
+                        </>
+                      ) : (
+                        <>
+                          <Send className="w-4 h-4 text-[#0A0F08]" />
+                          <span>Submit Project Inquiry</span>
+                        </>
+                      )}
+                    </button>
+
+                    <a
+                      href={whatsappUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-full bg-[#0A0F08] text-white border border-[var(--line-strong)] hover:border-[#86F00A] font-semibold text-sm transition-all duration-200 hover:bg-[#162012] hover:text-[var(--lime)] cursor-pointer text-center"
+                    >
+                      <MessageCircle className="w-4 h-4 text-[var(--lime)]" />
+                      <span>Chat via WhatsApp</span>
+                    </a>
                   </div>
                 </form>
               </div>
