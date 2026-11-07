@@ -34,22 +34,30 @@ export const Hero: React.FC = () => {
               <div className="flex items-center -space-x-2.5">
                 <img
                   src="/images/hero/avatar-1.png"
-                  alt="Client avatar"
+                  alt="AJÉBUILDS verified client avatar 1"
+                  width={36}
+                  height={36}
                   className="w-8 h-8 sm:w-9 sm:h-9 rounded-full border-2 border-white object-cover shadow-xs"
                 />
                 <img
                   src="/images/hero/avatar-2.png"
-                  alt="Client avatar"
+                  alt="AJÉBUILDS verified client avatar 2"
+                  width={36}
+                  height={36}
                   className="w-8 h-8 sm:w-9 sm:h-9 rounded-full border-2 border-white object-cover shadow-xs"
                 />
                 <img
                   src="/images/hero/avatar-3.png"
-                  alt="Client avatar"
+                  alt="AJÉBUILDS verified client avatar 3"
+                  width={36}
+                  height={36}
                   className="w-8 h-8 sm:w-9 sm:h-9 rounded-full border-2 border-white object-cover shadow-xs"
                 />
                 <img
                   src="/images/hero/avatar-4.png"
-                  alt="Client avatar"
+                  alt="AJÉBUILDS verified client avatar 4"
+                  width={36}
+                  height={36}
                   className="w-8 h-8 sm:w-9 sm:h-9 rounded-full border-2 border-white object-cover shadow-xs"
                 />
               </div>
@@ -139,9 +147,12 @@ export const Hero: React.FC = () => {
               <div className="relative z-10 rounded-2xl sm:rounded-[28px] overflow-hidden border border-[var(--line)] shadow-xl bg-white">
                 <img
                   src="/images/hero/hero-developer.png"
-                  alt="Developer working on a high-performing website"
+                  alt="Amos Jonathan (Joe) building high-performance Next.js websites and web applications at AJÉBUILDS"
+                  width={640}
+                  height={520}
                   className="w-full h-auto object-cover max-h-[520px] aspect-[4/3] sm:aspect-[1.12/1]"
                   loading="eager"
+                  fetchPriority="high"
                 />
               </div>
 

@@ -1,4 +1,14 @@
+import type { Metadata } from 'next';
 import Link from 'next/link';
+
+export const metadata: Metadata = {
+  title: '404 — Page Not Found | AJÉBUILDS.',
+  description: 'The requested page could not be found on AJÉBUILDS.',
+  robots: {
+    index: false,
+    follow: false,
+  },
+};
 
 export default function NotFound() {
   return (
@@ -17,4 +27,3 @@ export default function NotFound() {
     </div>
   );
 }
-

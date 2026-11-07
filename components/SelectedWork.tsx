@@ -315,7 +315,7 @@ export const SelectedWork: React.FC = () => {
               ) : (
                 <img
                   src={activeModalItem.src}
-                  alt={activeModalItem.title}
+                  alt={`${activeModalItem.title} — ${activeModalItem.subtitle}`}
                   className="max-h-[70vh] w-auto object-contain rounded-xl shadow-lg"
                 />
               )}
@@ -388,7 +388,7 @@ const MasonryCard: React.FC<MasonryCardProps> = ({ item, onOpenModal }) => {
         ) : (
           <img
             src={item.src}
-            alt={item.title}
+            alt={`${item.title} — ${item.subtitle}`}
             loading="lazy"
             className="w-full h-auto block object-cover group-hover:scale-[1.02] transition-transform duration-500"
           />
