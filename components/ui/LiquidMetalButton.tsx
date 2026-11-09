@@ -40,10 +40,9 @@ export const LiquidMetal = memo(function LiquidMetal({
             style={style}
         >
             <div
-                className="w-full h-full rounded-full animate-liquid-metal"
+                className="absolute -inset-[100%] w-[300%] h-[300%] rounded-full animate-liquid-metal-spin m-auto"
                 style={{
-                    background: `linear-gradient(115deg, ${colorBack} 0%, #14280d 20%, ${colorTint} 40%, #ffffff 50%, ${colorTint} 60%, #14280d 80%, ${colorBack} 100%)`,
-                    backgroundSize: "260% 260%",
+                    background: `conic-gradient(from 0deg, ${colorBack} 0deg, #14280d 45deg, ${colorTint} 90deg, #ffffff 135deg, ${colorTint} 180deg, #14280d 270deg, ${colorBack} 360deg)`,
                 }}
             />
         </div>

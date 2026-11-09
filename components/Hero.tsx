@@ -1,22 +1,9 @@
-'use client';
-
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Link from 'next/link';
-import { motion, AnimatePresence } from 'framer-motion';
 import { Star, Leaf, BarChart2, Trophy } from 'lucide-react';
-
-const ROTATING_WORDS = ['Website', 'App', 'Web App', 'AI Automation'];
+import { RotatingWord } from './ui/RotatingWord';
 
 export const Hero: React.FC = () => {
-  const [wordIndex, setWordIndex] = useState(0);
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setWordIndex((prev) => (prev + 1) % ROTATING_WORDS.length);
-    }, 2800);
-    return () => clearInterval(timer);
-  }, []);
-
   return (
     <section className="relative overflow-hidden bg-[var(--bg)] pt-24 pb-12 sm:pt-32 sm:pb-16 lg:pt-36 lg:pb-20 border-b border-[var(--line)]">
       <div className="wrap relative z-10 w-full">
@@ -73,23 +60,10 @@ export const Hero: React.FC = () => {
               </div>
             </div>
 
-            {/* Main Headline with Animated Rotating Words - Immediately visible on SSR */}
+            {/* Main Headline with Animated Rotating Words - Pure SSR with isolated client word */}
             <h1 className="text-[2.1rem] sm:text-4xl md:text-5xl lg:text-[3.35rem] xl:text-[3.85rem] font-bold tracking-tight text-[var(--fg)] leading-[1.14] mb-5 sm:mb-6">
               Elevate Your Brand With a High-Performing{' '}
-              <span className="inline-flex items-center justify-center relative min-w-[130px] sm:min-w-[175px] align-middle">
-                <AnimatePresence mode="wait">
-                  <motion.span
-                    key={ROTATING_WORDS[wordIndex]}
-                    initial={{ opacity: 0, y: 12 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -12 }}
-                    transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-                    className="inline-block bg-[var(--lime)]/20 text-[#1f3c03] px-2.5 py-0.5 rounded-lg border border-[var(--lime)]/40 shadow-xs text-center w-full"
-                  >
-                    {ROTATING_WORDS[wordIndex]}
-                  </motion.span>
-                </AnimatePresence>
-              </span>
+              <RotatingWord />
             </h1>
 
             {/* Subline */}
@@ -125,8 +99,8 @@ export const Hero: React.FC = () => {
                   <img
                     src="/images/hero/hero-developer.webp"
                     alt="Amos Jonathan (Joe) building high-performance Next.js websites and web applications at AJÉBUILDS"
-                    width={640}
-                    height={480}
+                    width={480}
+                    height={360}
                     className="w-full h-full object-cover"
                     loading="eager"
                     fetchPriority="high"
