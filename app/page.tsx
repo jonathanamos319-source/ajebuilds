@@ -1,5 +1,4 @@
 import React from 'react';
-import dynamic from 'next/dynamic';
 import { Navbar } from '@/components/Navbar';
 import { Hero } from '@/components/Hero';
 import { WhyUs } from '@/components/WhyUs';
@@ -12,17 +11,9 @@ import { Faq } from '@/components/Faq';
 import { FinalCta } from '@/components/FinalCta';
 import { ContactSection } from '@/components/ContactSection';
 import { Footer } from '@/components/Footer';
+import { FloatingWhatsApp } from '@/components/FloatingWhatsApp';
+import { CookieConsent } from '@/components/CookieConsent';
 import { GsapSection } from '@/components/ui/GsapSection';
-
-const FloatingWhatsApp = dynamic(
-  () => import('@/components/FloatingWhatsApp').then((m) => m.FloatingWhatsApp),
-  { ssr: false }
-);
-
-const CookieConsent = dynamic(
-  () => import('@/components/CookieConsent').then((m) => m.CookieConsent),
-  { ssr: false }
-);
 
 export default function HomePage() {
   return (
