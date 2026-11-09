@@ -41,59 +41,39 @@ export const GsapSection: React.FC<GsapSectionProps> = ({
     }
 
     const isMobile = window.innerWidth < 768;
+    if (isMobile) {
+      // Mobile-optimized: Zero GSAP overhead on mobile CPU, instant rendering and zero scroll-wobble
+      el.style.opacity = '1';
+      el.style.transform = 'none';
+      return;
+    }
 
     const ctx = gsap.context(() => {
-      if (isMobile) {
-        // Mobile-safe: Pure vertical transition, strictly no x-offset or horizontal overshoot
-        gsap.fromTo(
-          el,
-          {
-            opacity: 0,
-            y: 20,
+      // Desktop smooth reveal
+      gsap.fromTo(
+        el,
+        {
+          opacity: 0,
+          y: 30,
+          scale: 0.99,
+        },
+        {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          duration: 0.7,
+          delay,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: el,
+            start: triggerOffset,
+            once: true,
           },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.6,
-            delay,
-            ease: 'power2.out',
-            scrollTrigger: {
-              trigger: el,
-              start: triggerOffset,
-              once: true,
-            },
-            onComplete: () => {
-              gsap.set(el, { clearProps: 'transform,opacity' });
-            },
-          }
-        );
-      } else {
-        // Desktop smooth reveal
-        gsap.fromTo(
-          el,
-          {
-            opacity: 0,
-            y: 30,
-            scale: 0.99,
+          onComplete: () => {
+            gsap.set(el, { clearProps: 'transform,opacity' });
           },
-          {
-            opacity: 1,
-            y: 0,
-            scale: 1,
-            duration: 0.7,
-            delay,
-            ease: 'power3.out',
-            scrollTrigger: {
-              trigger: el,
-              start: triggerOffset,
-              once: true,
-            },
-            onComplete: () => {
-              gsap.set(el, { clearProps: 'transform,opacity' });
-            },
-          }
-        );
-      }
+        }
+      );
     }, containerRef);
 
     return () => ctx.revert();

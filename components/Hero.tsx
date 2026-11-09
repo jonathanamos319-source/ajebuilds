@@ -24,12 +24,7 @@ export const Hero: React.FC = () => {
           {/* Left Column: Social Proof, Headline, Subtitle, CTAs */}
           <div className="lg:col-span-6 flex flex-col items-start">
             {/* Social Proof: Avatars + 5 Stars + Rating text */}
-            <motion.div
-              initial={{ opacity: 0, y: 14 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-              className="flex items-center gap-3.5 mb-5 sm:mb-7"
-            >
+            <div className="flex items-center gap-3.5 mb-5 sm:mb-7">
               {/* Overlapping Avatar Stack */}
               <div className="flex items-center -space-x-2.5">
                 <img
@@ -76,49 +71,34 @@ export const Hero: React.FC = () => {
                   200+ happy clients
                 </span>
               </div>
-            </motion.div>
+            </div>
 
-            {/* Main Headline with Animated Rotating Words */}
-            <motion.h1
-              initial={{ opacity: 0, y: 18 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-              className="text-[2.1rem] sm:text-4xl md:text-5xl lg:text-[3.35rem] xl:text-[3.85rem] font-bold tracking-tight text-[var(--fg)] leading-[1.14] mb-5 sm:mb-6"
-            >
+            {/* Main Headline with Animated Rotating Words - Immediately visible on SSR */}
+            <h1 className="text-[2.1rem] sm:text-4xl md:text-5xl lg:text-[3.35rem] xl:text-[3.85rem] font-bold tracking-tight text-[var(--fg)] leading-[1.14] mb-5 sm:mb-6">
               Elevate Your Brand With a High-Performing{' '}
               <span className="inline-block relative">
                 <AnimatePresence mode="wait">
                   <motion.span
                     key={ROTATING_WORDS[wordIndex]}
-                    initial={{ opacity: 0, y: 20, filter: 'blur(4px)' }}
-                    animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-                    exit={{ opacity: 0, y: -20, filter: 'blur(4px)' }}
-                    transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
+                    initial={{ opacity: 0, y: 14 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -14 }}
+                    transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
                     className="inline-block bg-[var(--lime)]/20 text-[#1f3c03] px-2.5 py-0.5 rounded-lg border border-[var(--lime)]/40 shadow-xs"
                   >
                     {ROTATING_WORDS[wordIndex]}
                   </motion.span>
                 </AnimatePresence>
               </span>
-            </motion.h1>
+            </h1>
 
             {/* Subline */}
-            <motion.p
-              initial={{ opacity: 0, y: 18 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-              className="text-sm sm:text-base md:text-lg text-[var(--muted)] max-w-xl leading-relaxed mb-7 sm:mb-9"
-            >
+            <p className="text-sm sm:text-base md:text-lg text-[var(--muted)] max-w-xl leading-relaxed mb-7 sm:mb-9">
               At AJÉBUILDS., we craft high-performance websites and digital solutions designed to help your brand grow, convert, and stand out worldwide.
-            </motion.p>
+            </p>
 
             {/* CTAs - Brand Lime Button, NO ORANGE */}
-            <motion.div
-              initial={{ opacity: 0, y: 18 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-              className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 w-full sm:w-auto"
-            >
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 w-full sm:w-auto">
               <Link
                 href="#contact"
                 className="inline-flex items-center justify-center px-7 py-3.5 rounded-full bg-[var(--lime)] hover:bg-[var(--lime-dark)] text-[#0A0F08] font-bold text-sm sm:text-base shadow-sm hover:shadow transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 w-full sm:w-auto"
@@ -132,17 +112,12 @@ export const Hero: React.FC = () => {
               >
                 <span>See how it works</span>
               </Link>
-            </motion.div>
+            </div>
           </div>
 
-          {/* Right Column: Hero Photo (Clean card, NO claude sunburst / orange design) */}
+          {/* Right Column: Hero Photo Card */}
           <div className="lg:col-span-6 relative mt-4 lg:mt-0">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.96 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-              className="relative"
-            >
+            <div className="relative">
               {/* Main Photo Frame - Clean photo card */}
               <div className="relative z-10 rounded-2xl sm:rounded-[28px] overflow-hidden border border-[var(--line)] shadow-xl bg-white">
                 <img
@@ -178,7 +153,7 @@ export const Hero: React.FC = () => {
                   <span>Best performances</span>
                 </div>
               </div>
-            </motion.div>
+            </div>
           </div>
         </div>
       </div>
