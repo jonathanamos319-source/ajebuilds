@@ -38,26 +38,41 @@ export const LiquidMetal = memo(function LiquidMetal({
     className,
     style,
 }: LiquidMetalProps) {
+    const [mounted, setMounted] = React.useState(false);
+
+    React.useEffect(() => {
+        // Mount WebGL shader after initial paint to prevent FCP/LCP CPU stalls
+        const id = setTimeout(() => {
+            setMounted(true);
+        }, 120);
+        return () => clearTimeout(id);
+    }, []);
+
     return (
         <div
             className={cn("absolute inset-0 z-0 overflow-hidden", className)}
-            style={style}
+            style={{
+                background: "linear-gradient(135deg, #0A0F08 0%, #172611 50%, #86F00A 100%)",
+                ...style,
+            }}
         >
-            <LiquidMetalShader
-                colorBack={colorBack}
-                colorTint={colorTint}
-                speed={speed}
-                repetition={repetition}
-                distortion={distortion}
-                softness={0}
-                shiftRed={0.3}
-                shiftBlue={-0.3}
-                angle={45}
-                shape="none"
-                scale={scale}
-                fit="cover"
-                style={{ width: "100%", height: "100%" }}
-            />
+            {mounted && (
+                <LiquidMetalShader
+                    colorBack={colorBack}
+                    colorTint={colorTint}
+                    speed={speed}
+                    repetition={repetition}
+                    distortion={distortion}
+                    softness={0}
+                    shiftRed={0.3}
+                    shiftBlue={-0.3}
+                    angle={45}
+                    shape="none"
+                    scale={scale}
+                    fit="cover"
+                    style={{ width: "100%", height: "100%" }}
+                />
+            )}
         </div>
     );
 });

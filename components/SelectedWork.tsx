@@ -53,7 +53,7 @@ export const PORTFOLIO_ITEMS: PortfolioMediaItem[] = [
     subtitle: 'Real-time cryptocurrency tracking engine with CoinGecko live market data',
     category: 'Crypto & Web Apps',
     type: 'image',
-    src: '/assets/aistudio/screencapture-eke-market-vercel-app-2026-11-06-11_43_24.png',
+    src: '/assets/aistudio/screencapture-eke-market-vercel-app-2026-11-06-11_43_24.webp',
     liveUrl: 'https://eke-market.vercel.app/',
     tags: ['React', 'TypeScript', 'TailwindCSS', 'CoinGecko API'],
     featured: true,
@@ -64,7 +64,7 @@ export const PORTFOLIO_ITEMS: PortfolioMediaItem[] = [
     subtitle: 'Complete D2C storefront for organic pest control solutions with automated checkout',
     category: 'E-Commerce',
     type: 'image',
-    src: '/assets/aistudio/screencapture-haiflytrapng-2026-11-06-11_39_00.png',
+    src: '/assets/aistudio/screencapture-haiflytrapng-2026-11-06-11_39_00.webp',
     liveUrl: 'https://haiflytrapng.com/',
     tags: ['E-Commerce', 'React', 'TailwindCSS', 'Node.js'],
     featured: true,
@@ -75,7 +75,7 @@ export const PORTFOLIO_ITEMS: PortfolioMediaItem[] = [
     subtitle: 'Full-cycle invoicing platform with revenue metrics, client status, and billing tracking',
     category: 'SaaS & Dashboards',
     type: 'image',
-    src: '/assets/aistudio/screencapture-haiflyinvoice-vercel-app-en-dashboard-2026-11-06-11_36_38.png',
+    src: '/assets/aistudio/screencapture-haiflyinvoice-vercel-app-en-dashboard-2026-11-06-11_36_38.webp',
     liveUrl: 'https://haiflyinvoice.vercel.app/',
     tags: ['Next.js', 'PostgreSQL', 'Supabase', 'Dashboard UI'],
     featured: true,
@@ -86,7 +86,7 @@ export const PORTFOLIO_ITEMS: PortfolioMediaItem[] = [
     subtitle: 'Optimized product purchasing experience with inventory variants and fast checkout',
     category: 'E-Commerce',
     type: 'image',
-    src: '/assets/aistudio/screencapture-haiflytrapng-shop-2026-11-06-11_39_29.png',
+    src: '/assets/aistudio/screencapture-haiflytrapng-shop-2026-11-06-11_39_29.webp',
     liveUrl: 'https://haiflytrapng.com/shop',
     tags: ['Product Grid', 'Cart Checkout', 'Conversion CRO'],
   },
@@ -96,7 +96,7 @@ export const PORTFOLIO_ITEMS: PortfolioMediaItem[] = [
     subtitle: 'Interactive comparison charts allowing investors to benchmark assets against Bitcoin',
     category: 'Crypto & Web Apps',
     type: 'image',
-    src: '/assets/aistudio/screencapture-eke-market-vercel-app-compare-2026-11-06-11_44_52.png',
+    src: '/assets/aistudio/screencapture-eke-market-vercel-app-compare-2026-11-06-11_44_52.webp',
     liveUrl: 'https://eke-market.vercel.app/compare',
     tags: ['Chart.js', 'Vite', 'Interactive Graphing'],
   },
@@ -106,7 +106,7 @@ export const PORTFOLIO_ITEMS: PortfolioMediaItem[] = [
     subtitle: 'Full-lifecycle design systems with high-converting UI components and interactive engineering',
     category: 'Agency & Portfolios',
     type: 'image',
-    src: '/assets/aistudio/screencapture-localhost-3000-2026-11-06-11_19_51 (1)_edited.png',
+    src: '/assets/aistudio/screencapture-localhost-3000-2026-11-06-11_19_51 (1)_edited.webp',
     tags: ['Design System', 'UI/UX', 'Interactive Architecture'],
     featured: true,
   },
@@ -116,7 +116,7 @@ export const PORTFOLIO_ITEMS: PortfolioMediaItem[] = [
     subtitle: 'Modern invoice creation workflow with tax calculations, discounts, and PDF generation',
     category: 'SaaS & Dashboards',
     type: 'image',
-    src: '/assets/aistudio/screencapture-haiflyinvoice-vercel-app-en-invoices-new-2026-11-06-11_37_51.png',
+    src: '/assets/aistudio/screencapture-haiflyinvoice-vercel-app-en-invoices-new-2026-11-06-11_37_51.webp',
     liveUrl: 'https://haiflyinvoice.vercel.app/',
     tags: ['Form Engine', 'PDF Generation', 'Next.js'],
   },
@@ -126,7 +126,7 @@ export const PORTFOLIO_ITEMS: PortfolioMediaItem[] = [
     subtitle: 'Social proof review wall designed to boost consumer confidence and conversion rates',
     category: 'E-Commerce',
     type: 'image',
-    src: '/assets/aistudio/screencapture-haiflytrapng-reviews-2026-11-06-11_40_19.png',
+    src: '/assets/aistudio/screencapture-haiflytrapng-reviews-2026-11-06-11_40_19.webp',
     liveUrl: 'https://haiflytrapng.com/reviews',
     tags: ['Social Proof', 'User Reviews', 'CRO Design'],
   },
@@ -136,7 +136,7 @@ export const PORTFOLIO_ITEMS: PortfolioMediaItem[] = [
     subtitle: 'Algorithmic market scanner surfacing highest volume tokens and top daily movers',
     category: 'Crypto & Web Apps',
     type: 'image',
-    src: '/assets/aistudio/screencapture-eke-market-vercel-app-trending-2026-11-06-11_43_09.png',
+    src: '/assets/aistudio/screencapture-eke-market-vercel-app-trending-2026-11-06-11_43_09.webp',
     liveUrl: 'https://eke-market.vercel.app/trending',
     tags: ['Live Feed', 'CoinGecko API', 'Data Engine'],
   },
@@ -146,7 +146,7 @@ export const PORTFOLIO_ITEMS: PortfolioMediaItem[] = [
     subtitle: 'High-performance engineering platform featuring GSAP animations and liquid metal shaders',
     category: 'Agency & Portfolios',
     type: 'image',
-    src: '/assets/aistudio/screencapture-localhost-3000-2026-11-06-11_19_51_edited.png',
+    src: '/assets/aistudio/screencapture-localhost-3000-2026-11-06-11_19_51_edited.webp',
     tags: ['Next.js 15', 'Tailwind v4', 'GSAP ScrollTrigger'],
   },
   {
@@ -155,7 +155,7 @@ export const PORTFOLIO_ITEMS: PortfolioMediaItem[] = [
     subtitle: 'Transparent sprint-driven development lifecycle and production-grade software stack',
     category: 'Agency & Portfolios',
     type: 'image',
-    src: '/assets/aistudio/screencapture-localhost-3000-2026-11-06-11_19_51 (2)_edited.png',
+    src: '/assets/aistudio/screencapture-localhost-3000-2026-11-06-11_19_51 (2)_edited.webp',
     tags: ['DevOps', 'Engineering Stack', 'Next.js 15'],
   },
   {
@@ -164,7 +164,7 @@ export const PORTFOLIO_ITEMS: PortfolioMediaItem[] = [
     subtitle: 'Modern technology consulting platform built for scalable digital transformation',
     category: 'Agency & Portfolios',
     type: 'image',
-    src: '/assets/aistudio/screencapture-confianzatech-vercel-app-2026-11-06-12_25_26.png',
+    src: '/assets/aistudio/screencapture-confianzatech-vercel-app-2026-11-06-12_25_26.webp',
     liveUrl: 'https://confianzatech.vercel.app/',
     tags: ['React', 'Next.js', 'Tech Consulting', 'Enterprise UI'],
     featured: true,
@@ -175,7 +175,7 @@ export const PORTFOLIO_ITEMS: PortfolioMediaItem[] = [
     subtitle: 'Bespoke branding and visual art direction engineered for direct-response marketing',
     category: 'E-Commerce',
     type: 'image',
-    src: '/assets/aistudio/haiflywebimage.png',
+    src: '/assets/aistudio/haiflywebimage.webp',
     tags: ['Branding', 'Art Direction', 'UI/UX'],
   },
 ];
@@ -350,13 +350,28 @@ interface MasonryCardProps {
 const MasonryCard: React.FC<MasonryCardProps> = ({ item, onOpenModal }) => {
   const videoRef = useRef<HTMLVideoElement>(null);
 
-  // Continuously play video on mount and loop automatically
+  // Play video with IntersectionObserver only when visible in viewport
   React.useEffect(() => {
-    if (item.type === 'video' && videoRef.current) {
-      videoRef.current.defaultMuted = true;
-      videoRef.current.muted = true;
-      videoRef.current.play().catch(() => {});
-    }
+    if (item.type !== 'video' || !videoRef.current) return;
+    const vid = videoRef.current;
+    vid.defaultMuted = true;
+    vid.muted = true;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            vid.play().catch(() => {});
+          } else {
+            vid.pause();
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
+
+    observer.observe(vid);
+    return () => observer.disconnect();
   }, [item.type]);
 
   return (
@@ -371,10 +386,10 @@ const MasonryCard: React.FC<MasonryCardProps> = ({ item, onOpenModal }) => {
             <video
               ref={videoRef}
               src={item.src}
-              autoPlay
               loop
               muted
               playsInline
+              preload="none"
               className="w-full h-auto block object-cover group-hover:scale-[1.02] transition-transform duration-500"
             />
             {/* Continuous Video Live Indicator (Pexels style) */}

@@ -44,7 +44,7 @@ export const AjeBuildsLogo: React.FC<LogoProps> = ({
         className={`relative ${iconSizeMap[size]} shrink-0 transition-transform duration-200 group-hover:scale-105 rounded-xl overflow-hidden border border-[#86F00A]/30 shadow-sm bg-[#0A0F08]`}
       >
         <Image
-          src="/images/logo.jpg"
+          src="/images/logo.webp"
           alt="AJÉBUILDS. Logo"
           width={pixelSizeMap[size]}
           height={pixelSizeMap[size]}

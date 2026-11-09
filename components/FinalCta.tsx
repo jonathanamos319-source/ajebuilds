@@ -1,10 +1,15 @@
 'use client';
 
 import React from 'react';
+import dynamic from 'next/dynamic';
 import { ScrollReveal } from './ui/ScrollReveal';
 import { ArrowUpRight, Calendar } from 'lucide-react';
 import { LiquidMetalButton } from './ui/LiquidMetalButton';
-import { ParticleSaturn } from './ui/ParticleSaturn';
+
+const ParticleSaturn = dynamic(
+  () => import('./ui/ParticleSaturn').then((m) => m.ParticleSaturn),
+  { ssr: false, loading: () => <div className="w-full h-full" /> }
+);
 
 export const FinalCta: React.FC = () => {
   return (

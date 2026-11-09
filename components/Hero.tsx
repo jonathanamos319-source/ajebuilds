@@ -33,28 +33,28 @@ export const Hero: React.FC = () => {
               {/* Overlapping Avatar Stack */}
               <div className="flex items-center -space-x-2.5">
                 <img
-                  src="/images/hero/avatar-1.png"
+                  src="/images/hero/avatar-1.webp"
                   alt="AJÉBUILDS verified client avatar 1"
                   width={36}
                   height={36}
                   className="w-8 h-8 sm:w-9 sm:h-9 rounded-full border-2 border-white object-cover shadow-xs"
                 />
                 <img
-                  src="/images/hero/avatar-2.png"
+                  src="/images/hero/avatar-2.webp"
                   alt="AJÉBUILDS verified client avatar 2"
                   width={36}
                   height={36}
                   className="w-8 h-8 sm:w-9 sm:h-9 rounded-full border-2 border-white object-cover shadow-xs"
                 />
                 <img
-                  src="/images/hero/avatar-3.png"
+                  src="/images/hero/avatar-3.webp"
                   alt="AJÉBUILDS verified client avatar 3"
                   width={36}
                   height={36}
                   className="w-8 h-8 sm:w-9 sm:h-9 rounded-full border-2 border-white object-cover shadow-xs"
                 />
                 <img
-                  src="/images/hero/avatar-4.png"
+                  src="/images/hero/avatar-4.webp"
                   alt="AJÉBUILDS verified client avatar 4"
                   width={36}
                   height={36}
@@ -146,13 +146,14 @@ export const Hero: React.FC = () => {
               {/* Main Photo Frame - Clean photo card */}
               <div className="relative z-10 rounded-2xl sm:rounded-[28px] overflow-hidden border border-[var(--line)] shadow-xl bg-white">
                 <img
-                  src="/images/hero/hero-developer.png"
+                  src="/images/hero/hero-developer.webp"
                   alt="Amos Jonathan (Joe) building high-performance Next.js websites and web applications at AJÉBUILDS"
                   width={640}
                   height={520}
                   className="w-full h-auto object-cover max-h-[520px] aspect-[4/3] sm:aspect-[1.12/1]"
                   loading="eager"
                   fetchPriority="high"
+                  decoding="async"
                 />
               </div>
 

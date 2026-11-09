@@ -1,9 +1,17 @@
 "use client";
 
 import * as React from "react";
+import dynamic from "next/dynamic";
 import { MotionConfig, motion, type Transition } from "framer-motion";
-import { BerylCap } from "./ui/BerylCap";
 import { LiquidMetalButton } from "./ui/LiquidMetalButton";
+
+const BerylCap = dynamic(
+  () => import("./ui/BerylCap").then((m) => m.BerylCap),
+  {
+    ssr: false,
+    loading: () => <div className="w-[230px] h-[230px] sm:w-[270px] sm:h-[270px] md:w-[300px] md:h-[300px]" />,
+  }
+);
 import { MessageSquare, ArrowUpRight, ShieldCheck, Clock, UserCheck } from "lucide-react";
 import { Tag } from "@phosphor-icons/react";
 import { WhatsAppIcon } from "./FloatingWhatsApp";

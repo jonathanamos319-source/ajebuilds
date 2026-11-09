@@ -277,6 +277,13 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${sora.variable} ${ibmPlexMono.variable}`}>
       <head>
+        <link
+          rel="preload"
+          as="image"
+          href="/images/hero/hero-developer.webp"
+          type="image/webp"
+          fetchPriority="high"
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdGraph) }}
