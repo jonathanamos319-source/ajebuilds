@@ -76,15 +76,15 @@ export const Hero: React.FC = () => {
             {/* Main Headline with Animated Rotating Words - Immediately visible on SSR */}
             <h1 className="text-[2.1rem] sm:text-4xl md:text-5xl lg:text-[3.35rem] xl:text-[3.85rem] font-bold tracking-tight text-[var(--fg)] leading-[1.14] mb-5 sm:mb-6">
               Elevate Your Brand With a High-Performing{' '}
-              <span className="inline-block relative">
+              <span className="inline-flex items-center justify-center relative min-w-[130px] sm:min-w-[175px] align-middle">
                 <AnimatePresence mode="wait">
                   <motion.span
                     key={ROTATING_WORDS[wordIndex]}
-                    initial={{ opacity: 0, y: 14 }}
+                    initial={{ opacity: 0, y: 12 }}
                     animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -14 }}
+                    exit={{ opacity: 0, y: -12 }}
                     transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-                    className="inline-block bg-[var(--lime)]/20 text-[#1f3c03] px-2.5 py-0.5 rounded-lg border border-[var(--lime)]/40 shadow-xs"
+                    className="inline-block bg-[var(--lime)]/20 text-[#1f3c03] px-2.5 py-0.5 rounded-lg border border-[var(--lime)]/40 shadow-xs text-center w-full"
                   >
                     {ROTATING_WORDS[wordIndex]}
                   </motion.span>
@@ -118,18 +118,21 @@ export const Hero: React.FC = () => {
           {/* Right Column: Hero Photo Card */}
           <div className="lg:col-span-6 relative mt-4 lg:mt-0">
             <div className="relative">
-              {/* Main Photo Frame - Clean photo card */}
-              <div className="relative z-10 rounded-2xl sm:rounded-[28px] overflow-hidden border border-[var(--line)] shadow-xl bg-white">
-                <img
-                  src="/images/hero/hero-developer.webp"
-                  alt="Amos Jonathan (Joe) building high-performance Next.js websites and web applications at AJÉBUILDS"
-                  width={640}
-                  height={520}
-                  className="w-full h-auto object-cover max-h-[520px] aspect-[4/3] sm:aspect-[1.12/1]"
-                  loading="eager"
-                  fetchPriority="high"
-                  decoding="async"
-                />
+              {/* Main Photo Frame - Locked Aspect Ratio to completely prevent Layout Shift */}
+              <div className="relative z-10 rounded-2xl sm:rounded-[28px] overflow-hidden border border-[var(--line)] shadow-xl bg-white aspect-[4/3] sm:aspect-[1.12/1] w-full">
+                <picture className="w-full h-full block">
+                  <source media="(max-width: 640px)" srcSet="/images/hero/hero-developer-mobile.webp" type="image/webp" />
+                  <img
+                    src="/images/hero/hero-developer.webp"
+                    alt="Amos Jonathan (Joe) building high-performance Next.js websites and web applications at AJÉBUILDS"
+                    width={640}
+                    height={480}
+                    className="w-full h-full object-cover"
+                    loading="eager"
+                    fetchPriority="high"
+                    decoding="async"
+                  />
+                </picture>
               </div>
 
               {/* Bottom Feature Badges Bar - Brand colors, NO ORANGE */}

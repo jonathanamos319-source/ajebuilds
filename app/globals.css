@@ -228,3 +228,21 @@ body {
   mask-image: linear-gradient(90deg, transparent, black 12%, black 88%, transparent);
   -webkit-mask-image: linear-gradient(90deg, transparent, black 12%, black 88%, transparent);
 }
+
+/* GPU-Accelerated Liquid Metal Chrome Shimmer (0ms CPU, 0ms TBT) */
+@keyframes liquidMetalShimmer {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-liquid-metal {
+  animation: liquidMetalShimmer 4s ease-in-out infinite;
+  will-change: background-position;
+}

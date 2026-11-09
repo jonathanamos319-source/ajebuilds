@@ -390,6 +390,9 @@ const MasonryCard: React.FC<MasonryCardProps> = ({ item, onOpenModal }) => {
               muted
               playsInline
               preload="none"
+              width={600}
+              height={375}
+              style={{ aspectRatio: '16/10' }}
               className="w-full h-auto block object-cover group-hover:scale-[1.02] transition-transform duration-500"
             />
             {/* Continuous Video Live Indicator (Pexels style) */}
@@ -405,6 +408,10 @@ const MasonryCard: React.FC<MasonryCardProps> = ({ item, onOpenModal }) => {
             src={item.src}
             alt={`${item.title} — ${item.subtitle}`}
             loading="lazy"
+            decoding="async"
+            width={600}
+            height={375}
+            style={{ aspectRatio: '16/10' }}
             className="w-full h-auto block object-cover group-hover:scale-[1.02] transition-transform duration-500"
           />
         )}

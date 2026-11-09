@@ -281,6 +281,8 @@ export default function RootLayout({
           rel="preload"
           as="image"
           href="/images/hero/hero-developer.webp"
+          imageSrcSet="/images/hero/hero-developer-mobile.webp 640w, /images/hero/hero-developer.webp 1280w"
+          imageSizes="(max-width: 640px) 100vw, 640px"
           type="image/webp"
           fetchPriority="high"
         />

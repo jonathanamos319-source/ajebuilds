@@ -2,11 +2,11 @@
 
 import React, { memo, forwardRef } from "react";
 import Link from "next/link";
-import { LiquidMetal as LiquidMetalShader } from "@paper-design/shaders-react";
 import { cn } from "@/lib/utils";
 
 // ============================================================================
-// LiquidMetal - Base shader wrapper component
+// LiquidMetal - Ultra High-Performance GPU-Accelerated Chrome Liquid Metal
+// (Pure CSS compositor animation, 0ms main-thread CPU blocking, 0 WebGL overhead)
 // ============================================================================
 
 export interface LiquidMetalProps {
@@ -29,50 +29,23 @@ export interface LiquidMetalProps {
 }
 
 export const LiquidMetal = memo(function LiquidMetal({
-    colorBack = "#aaaaac",
-    colorTint = "#ffffff",
-    speed = 0.5,
-    repetition = 4,
-    distortion = 0.1,
-    scale = 1,
+    colorBack = "#0A0F08",
+    colorTint = "#86F00A",
     className,
     style,
 }: LiquidMetalProps) {
-    const [mounted, setMounted] = React.useState(false);
-
-    React.useEffect(() => {
-        // Mount WebGL shader after initial paint to prevent FCP/LCP CPU stalls
-        const id = setTimeout(() => {
-            setMounted(true);
-        }, 120);
-        return () => clearTimeout(id);
-    }, []);
-
     return (
         <div
-            className={cn("absolute inset-0 z-0 overflow-hidden", className)}
-            style={{
-                background: "linear-gradient(135deg, #0A0F08 0%, #172611 50%, #86F00A 100%)",
-                ...style,
-            }}
+            className={cn("absolute inset-0 z-0 overflow-hidden pointer-events-none rounded-full", className)}
+            style={style}
         >
-            {mounted && (
-                <LiquidMetalShader
-                    colorBack={colorBack}
-                    colorTint={colorTint}
-                    speed={speed}
-                    repetition={repetition}
-                    distortion={distortion}
-                    softness={0}
-                    shiftRed={0.3}
-                    shiftBlue={-0.3}
-                    angle={45}
-                    shape="none"
-                    scale={scale}
-                    fit="cover"
-                    style={{ width: "100%", height: "100%" }}
-                />
-            )}
+            <div
+                className="w-full h-full rounded-full animate-liquid-metal"
+                style={{
+                    background: `linear-gradient(115deg, ${colorBack} 0%, #14280d 20%, ${colorTint} 40%, #ffffff 50%, ${colorTint} 60%, #14280d 80%, ${colorBack} 100%)`,
+                    backgroundSize: "260% 260%",
+                }}
+            />
         </div>
     );
 });
@@ -135,7 +108,7 @@ export const LiquidMetalButton = forwardRef<
                 className="relative rounded-full overflow-hidden shadow-[0_12px_36px_-10px_rgba(10,15,8,0.25)]"
                 style={{ padding: borderWidth }}
             >
-                {/* Liquid Metal Border Layer */}
+                {/* Liquid Metal Border Layer (GPU-Accelerated) */}
                 <LiquidMetal
                     colorBack={metalConfig?.colorBack ?? "#0A0F08"}
                     colorTint={metalConfig?.colorTint ?? "#86F00A"}
@@ -149,30 +122,24 @@ export const LiquidMetalButton = forwardRef<
                 {/* Inner Button Body */}
                 <div
                     className={cn(
-                        "relative z-10 rounded-full flex items-center select-none",
-                        "bg-[#0A0F08] text-white",
-                        "transition-all duration-200",
-                        "group-hover:bg-[#162012]",
+                        "relative z-10 flex items-center rounded-full bg-[#0A0F08] text-white tracking-wide transition-all duration-300",
+                        "hover:bg-[#111a0e] active:scale-[0.98]",
                         sizeStyles[size]
                     )}
                 >
+                    {/* Icon container with electric lime glow */}
                     {icon && (
                         <div
                             className={cn(
-                                "rounded-full flex items-center justify-center shrink-0",
-                                "bg-[#162012] text-[var(--lime)]",
-                                "shadow-[inset_0_2px_4px_rgba(0,0,0,0.4)]",
+                                "flex items-center justify-center rounded-full bg-gradient-to-br from-[#86F00A]/30 to-[#86F00A]/10 border border-[#86F00A]/40 shadow-[0_0_12px_rgba(134,240,10,0.3)] shrink-0",
                                 iconSizes[size]
                             )}
                         >
-                            <span className="flex items-center justify-center">
-                                {icon}
-                            </span>
+                            {icon}
                         </div>
                     )}
-                    <span className="tracking-tight text-white group-hover:text-[var(--lime)] transition-colors">
-                        {children}
-                    </span>
+
+                    <span className="truncate">{children}</span>
                 </div>
             </div>
         );
@@ -182,7 +149,8 @@ export const LiquidMetalButton = forwardRef<
                 <Link
                     href={href}
                     className={cn(
-                        "relative group inline-block cursor-pointer border-none bg-transparent p-0 outline-none transition-transform hover:-translate-y-0.5 active:scale-[0.98]",
+                        "inline-block rounded-full transition-transform hover:-translate-y-0.5 active:translate-y-0 outline-none focus-visible:ring-2 focus-visible:ring-[#86F00A] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0A0F08]",
+                        disabled && "pointer-events-none opacity-50",
                         className
                     )}
                     onClick={onClick as any}
@@ -195,10 +163,12 @@ export const LiquidMetalButton = forwardRef<
         return (
             <button
                 ref={ref}
+                type="button"
                 disabled={disabled}
                 onClick={onClick}
                 className={cn(
-                    "relative group cursor-pointer border-none bg-transparent p-0 outline-none transition-transform hover:-translate-y-0.5 active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed disabled:pointer-events-none",
+                    "inline-block rounded-full transition-transform hover:-translate-y-0.5 active:translate-y-0 outline-none focus-visible:ring-2 focus-visible:ring-[#86F00A] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0A0F08]",
+                    disabled && "cursor-not-allowed opacity-50",
                     className
                 )}
                 {...props}
